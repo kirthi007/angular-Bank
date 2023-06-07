@@ -1,0 +1,208 @@
+<app-header></app-header>
+<body>
+  <div class="container">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input
+          type="text"
+          formControlName="firstName"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('firstName')?.invalid &&
+            (registrationForm.get('firstName')?.dirty ||
+              registrationForm.get('firstName')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('firstName')?.hasError('required')">
+            First name is required.
+          </p>
+          <p *ngIf="registrationForm.get('firstName')?.hasError('whitespace')">
+            Whitespaces are not allowed.
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="middleName">Middle Name:</label>
+        <input type="text" formControlName="middleName" class="form-control" />
+        <div
+          *ngIf="
+            registrationForm.get('middleName')?.invalid &&
+            (registrationForm.get('middleName')?.dirty ||
+              registrationForm.get('middleName')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('middleName')?.hasError('whitespace')">
+            Whitespaces are not allowed.
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input
+          type="text"
+          formControlName="lastName"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('lastName')?.invalid &&
+            (registrationForm.get('lastName')?.dirty ||
+              registrationForm.get('lastName')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('lastName')?.hasError('required')">
+            Last name is required.
+          </p>
+          <p *ngIf="registrationForm.get('lastName')?.hasError('whitespace')">
+            Whitespaces are not allowed.
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('email')?.invalid &&
+            (registrationForm.get('email')?.dirty ||
+              registrationForm.get('email')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('email')?.hasError('required')">
+            Email is required.
+          </p>
+          <p *ngIf="registrationForm.get('email')?.hasError('pattern')">
+            Please enter a valid email address.
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="tel"
+          formControlName="phone"
+          class="form-control"
+          minlength="10"
+          maxlength="10"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('phone')?.invalid &&
+            (registrationForm.get('phone')?.dirty ||
+              registrationForm.get('phone')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('phone')?.hasError('required')">
+            Phone number is required.
+          </p>
+          <p *ngIf="registrationForm.get('phone')?.hasError('pattern')">
+            Please enter a valid phone number starting with 6, 7, 8, or 9 and
+            containing 10 digits..
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea
+          formControlName="address"
+          class="form-control"
+          required
+        ></textarea>
+        <div
+          *ngIf="
+            registrationForm.get('address')?.invalid &&
+            (registrationForm.get('address')?.dirty ||
+              registrationForm.get('address')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('address')?.hasError('required')">
+            Address is required.
+          </p>
+          <p *ngIf="registrationForm.get('address')?.hasError('whitespace')">
+            Whitespaces are not allowed.
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.get('password')?.invalid &&
+            (registrationForm.get('password')?.dirty ||
+              registrationForm.get('password')?.touched)
+          "
+        >
+          <p *ngIf="registrationForm.get('password')?.hasError('required')">
+            Password is required.
+          </p>
+          <p *ngIf="registrationForm.get('password')?.hasError('whitespace')">
+            Whitespaces are not allowed.
+          </p>
+          <p *ngIf="registrationForm.get('password')?.hasError('pattern')">
+            Password should contain at least one lowercase letter, one uppercase
+            letter, one digit, and one special character.
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label for="confirmPassword">Re-enter Password:</label>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            registrationForm.hasError('passwordsNotMatched') &&
+            (registrationForm.get('confirmPassword')?.dirty ||
+              registrationForm.get('confirmPassword')?.touched)
+          "
+        >
+          <p>Passwords do not match.</p>
+        </div>
+      </div>
+      <br />
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!registrationForm.valid"
+      >
+        Register
+      </button>
+      <br />
+    </form>
+  </div>
+</body>

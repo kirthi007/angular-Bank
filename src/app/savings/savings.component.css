@@ -1,0 +1,84 @@
+body {
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    130deg,
+    rgb(138, 228, 213) 0%,
+    rgb(118, 130, 235) 100%
+  );
+}
+
+.app-navbar {
+  margin-bottom: 20px;
+}
+
+a {
+  top: 8%;
+  right: 0;
+  position: absolute;
+}
+
+button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 70%;
+  margin-top: 20px;
+}
+
+table th {
+  padding: 23px;
+  background-color: darkgray;
+}
+
+.credit {
+  color: green;
+}
+
+.debit {
+  color: red;
+}
+
+td {
+  text-align: center;
+  padding: 15px;
+}
+
+form {
+  text-align: center;
+}
+
+input[type='number'],
+button[type='submit'] {
+  padding: 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type='number'] {
+  width: 30%;
+}
+
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-group label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.button-group button {
+  margin-right: 10px;
+}

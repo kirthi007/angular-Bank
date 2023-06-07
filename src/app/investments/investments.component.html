@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<body>
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="name" required />
+      <br />
+      <label for="amount">Investment Amount:</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        [(ngModel)]="amount"
+        required
+      />
+      <br />
+      <label for="duration">Investment Duration (in months):</label>
+      <input
+        type="number"
+        id="duration"
+        name="duration"
+        [(ngModel)]="duration"
+        required
+      />
+      <br />
+      <input type="submit" value="Register" (click)="registerInvestment()" />
+    </form>
+  </div>
+</body>

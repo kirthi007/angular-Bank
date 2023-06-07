@@ -1,0 +1,209 @@
+<app-navbar></app-navbar>
+<body>
+  <button (click)="verifyAddCard()">Add Card</button>
+  <div class="card-container">
+    <div *ngFor="let card of currentUserards" class="card-item" (click)="selectCard(card)">
+      <div class="cards">
+        <div class="card">
+          <div class="card-front">
+            <b>{{ card.BankName }} BANK</b>
+            <div class="chip">
+              <img
+                src="https://www.shutterstock.com/image-vector/esim-embedded-sim-card-modern-260nw-1443977882.jpg"
+                height="30px"
+                width="30px"
+              />
+            </div>
+            <div class="Bank Name">
+              <img [src]="getBankLogo(card.BankName)" width="50px" />
+            </div>
+            <div class="card-number">{{ card.Card_Number }}</div>
+            <div class="card-holder">{{ card.Card_Holder }}</div>
+            <div class="card-expiry">
+              <b>VALID THRRU </b>{{ card.Card_expiry }}
+            </div>
+            <div class="card-type">
+              <img [src]="getCardTypeLogo(card.Card_type)" width="50px" />
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="magnetic_stripe"></div>
+            <div class="card-cvv">{{ card.Card_CVV }}</div>
+            <div class="holo">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9TgUoOlRZcq5IhTB9ltrLtNhdelGJnFAPhPqId8kO9GvMPdy-Qjbx_SeekMPsVE1PQNs&usqp=CAU"
+                width="40px"
+                height="40px"
+              />
+              <h1>
+                <img
+                  src="https://qph.cf2.quoracdn.net/main-qimg-fa96f7baa717dbc7a97810ab3d07acfc"
+                  width="40px"
+                  height="40px"
+                />
+              </h1>
+            </div>
+            <div class="qr"></div>
+            <button (click)="verifyEditCard(card)">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showAddCard" class="cardform">
+    <form [formGroup]="addCardForm" (ngSubmit)="addCard()">
+      <div class="form-group">
+        <label for="bankName">Bank Name:</label>
+        <input
+          type="text"
+          formControlName="bankName"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            addCardForm.get('bankName').invalid &&
+            (addCardForm.get('bankName').touched ||
+              addCardForm.get('bankName').dirty)
+          "
+        >
+          <div *ngIf="addCardForm.get('bankName').hasError('required')">
+            Bank Name is required.
+          </div>
+          <div *ngIf="addCardForm.get('bankName').hasError('whitespace')">
+            Bank Name should not be empty or contain only whitespace.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Card Number:</label>
+        <input
+          type="text"
+          formControlName="cardNumber"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            addCardForm.get('cardNumber').invalid &&
+            (addCardForm.get('cardNumber').touched ||
+              addCardForm.get('cardNumber').dirty)
+          "
+        >
+          <div *ngIf="addCardForm.get('cardNumber').hasError('required')">
+            Card Number is required.
+          </div>
+          <div *ngIf="addCardForm.get('cardNumber').hasError('pattern')">
+            Card Number should be a 16-digit number.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardHolder">Card Holder:</label>
+        <input
+          type="text"
+          formControlName="cardHolder"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            addCardForm.get('cardHolder').invalid &&
+            (addCardForm.get('cardHolder').touched ||
+              addCardForm.get('cardHolder').dirty)
+          "
+        >
+          <div *ngIf="addCardForm.get('cardHolder').hasError('required')">
+            Card Holder is required.
+          </div>
+          <div *ngIf="addCardForm.get('cardHolder').hasError('whitespace')">
+            Card Holder should not be empty or contain only whitespace.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardExpiry">Card Expiry:</label>
+        <input
+          type="text"
+          formControlName="cardExpiry"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            addCardForm.get('cardExpiry').invalid &&
+            (addCardForm.get('cardExpiry').touched ||
+              addCardForm.get('cardExpiry').dirty)
+          "
+        >
+          <div *ngIf="addCardForm.get('cardExpiry').hasError('required')">
+            Card Expiry is required.
+          </div>
+          <div *ngIf="addCardForm.get('cardExpiry').hasError('pattern')">
+            Card Expiry should be in the format MM/YY.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardType">Card Type:</label>
+        <input
+          type="text"
+          formControlName="cardType"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            addCardForm.get('cardType').invalid &&
+            (addCardForm.get('cardType').touched ||
+              addCardForm.get('cardType').dirty)
+          "
+        >
+          <div *ngIf="addCardForm.get('cardType').hasError('required')">
+            Card Type is required.
+          </div>
+          <div *ngIf="addCardForm.get('cardType').hasError('whitespace')">
+            Card Type should not be empty or contain only whitespace.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardCVV">CVV:</label>
+        <input
+          type="text"
+          formControlName="cardCVV"
+          class="form-control"
+          required
+        />
+        <div
+          *ngIf="
+            addCardForm.get('cardCVV').invalid &&
+            (addCardForm.get('cardCVV').touched ||
+              addCardForm.get('cardCVV').dirty)
+          "
+        >
+          <div *ngIf="addCardForm.get('cardCVV').hasError('required')">
+            CVV is required.
+          </div>
+          <div *ngIf="addCardForm.get('cardCVV').hasError('pattern')">
+            CVV should be a 3-digit number.
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!addCardForm.valid"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+  <div *ngIf="showEditCard" class="editCard">
+    <app-newcard
+      [editcard]="card"
+      (cardSaved)="updateCard($event)"
+    ></app-newcard>
+  </div>
+</body>

@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()" #depositForm="ngForm">
+  <div class="form-group">
+    <label for="amount">Amount:</label><br />
+    <input
+      type="number"
+      id="amount"
+      name="amount"
+      [(ngModel)]="depositAmount"
+      required
+    />
+  </div>
+  <button type="submit">Deposit</button>
+</form>

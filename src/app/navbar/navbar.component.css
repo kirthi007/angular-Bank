@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  list-style-type: none;
+  padding: 15px;
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: #a89bf3;
+  margin: auto;
+}
+
+ul,
+li,
+a {
+  margin-right: 10px;
+  color: rgb(103, 11, 252);
+}

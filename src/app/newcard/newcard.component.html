@@ -1,0 +1,153 @@
+<form [formGroup]="editCardForm" (ngSubmit)="editCard()" class="edit-card-form">
+  <div class="form-group">
+    <label for="bankName">Bank Name:</label>
+    <input
+      type="text"
+      formControlName="bankName"
+      class="form-control"
+      [(ngModel)]=" editcard.BankName"
+      required
+    >
+    <div
+      *ngIf="
+        editCardForm.get('bankName').invalid &&
+        (editCardForm.get('bankName').touched ||
+          editCardForm.get('bankName').dirty)
+      "
+    >
+      <div *ngIf="editCardForm.get('bankName').hasError('required')">
+        Bank Name is required.
+      </div>
+      <div *ngIf="editCardForm.get('bankName').hasError('whitespace')">
+        Bank Name should not be empty or contain only whitespace.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardNumber">Card Number:</label>
+    <input
+      type="text"
+      formControlName="cardNumber"
+      class="form-control"
+      [(ngModel)]=" editcard.Card_Number"
+      required
+    />
+    <div
+      *ngIf="
+        editCardForm.get('cardNumber').invalid &&
+        (editCardForm.get('cardNumber').touched ||
+          editCardForm.get('cardNumber').dirty)
+      "
+    >
+      <div *ngIf="editCardForm.get('cardNumber').hasError('required')">
+        Card Number is required.
+      </div>
+      <div *ngIf="editCardForm.get('cardNumber').hasError('pattern')">
+        Card Number should be a 16-digit number.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardHolder">Card Holder:</label>
+    <input
+      type="text"
+      formControlName="cardHolder"
+      class="form-control"
+      [(ngModel)]=" editcard.Card_Holder"
+      required
+    />
+    <div
+      *ngIf="
+        editCardForm.get('cardHolder').invalid &&
+        (editCardForm.get('cardHolder').touched ||
+          editCardForm.get('cardHolder').dirty)
+      "
+    >
+      <div *ngIf="editCardForm.get('cardHolder').hasError('required')">
+        Card Holder is required.
+      </div>
+      <div *ngIf="editCardForm.get('cardHolder').hasError('whitespace')">
+        Card Holder should not be empty or contain only whitespace.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardExpiry">Card Expiry:</label>
+    <input
+      type="text"
+      formControlName="cardExpiry"
+      class="form-control"
+      [(ngModel)]=" editcard.Card_expiry"
+      required
+    />
+    <div
+      *ngIf="
+        editCardForm.get('cardExpiry').invalid &&
+        (editCardForm.get('cardExpiry').touched ||
+          editCardForm.get('cardExpiry').dirty)
+      "
+    >
+      <div *ngIf="editCardForm.get('cardExpiry').hasError('required')">
+        Card Expiry is required.
+      </div>
+      <div *ngIf="editCardForm.get('cardExpiry').hasError('pattern')">
+        Card Expiry should be in the format MM/YY.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardType">Card Type:</label>
+    <input
+      type="text"
+      formControlName="cardType"
+      class="form-control"
+      [(ngModel)]=" editcard.Card_type"
+      required
+    />
+    <div
+      *ngIf="
+        editCardForm.get('cardType').invalid &&
+        (editCardForm.get('cardType').touched ||
+          editCardForm.get('cardType').dirty)
+      "
+    >
+      <div *ngIf="editCardForm.get('cardType').hasError('required')">
+        Card Type is required.
+      </div>
+      <div *ngIf="editCardForm.get('cardType').hasError('whitespace')">
+        Card Type should not be empty or contain only whitespace.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cardCVV">CVV:</label>
+    <input
+      type="text"
+      formControlName="cardCVV"
+      class="form-control"
+      [(ngModel)]=" editcard.Card_CVV"
+      required
+    />
+    <div
+      *ngIf="
+        editCardForm.get('cardCVV').invalid &&
+        (editCardForm.get('cardCVV').touched ||
+          editCardForm.get('cardCVV').dirty)
+      "
+    >
+      <div *ngIf="editCardForm.get('cardCVV').hasError('required')">
+        CVV is required.
+      </div>
+      <div *ngIf="editCardForm.get('cardCVV').hasError('pattern')">
+        CVV should be a 3-digit number.
+      </div>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="!editCardForm.valid"
+  >
+    Save
+  </button>
+</form>

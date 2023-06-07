@@ -1,0 +1,47 @@
+span.error {
+  color: red;
+  font-size: 0.8em;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* Style for the login container */
+.login-container {
+  /* border: 1px solid ; */
+  box-shadow: #eb8ff7;
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+  width: 15%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  margin-top: 10%;
+}
+
+/* Style for the login form inputs */
+.login-container input {
+  margin-bottom: 10px;
+}
+
+/* Style for the login buttons */
+.login-container button {
+  margin-right: 10px;
+}
+
+body,
+html {
+  background: radial-gradient(
+    circle,
+    rgba(250, 146, 202, 1) 0%,
+    rgba(148, 228, 233, 1) 100%
+  );
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: auto;
+}

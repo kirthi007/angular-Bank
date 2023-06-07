@@ -1,0 +1,40 @@
+.edit-card-form {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  justify-content: center;
+  width: fit-content;
+}
+
+.edit-card-form .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-card-form label {
+  font-weight: bold;
+}
+
+.edit-card-form .form-control {
+  width: auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.edit-card-form .btn-primary {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-card-form .btn-primary:disabled {
+  background-color: #ccc;
+  /* color: #fff; Update text color to white */
+  cursor: not-allowed;
+}
+

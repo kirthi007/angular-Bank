@@ -1,0 +1,50 @@
+button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: rgb(255, 255, 255);
+}
+
+.dropdown {
+  position: absolute;
+  top: 6%;
+  right: 0;
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px #ccc;
+  /* background: #d89237; */
+  margin-top: 10%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.col-6 {
+  width: 50%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    130deg,
+    rgb(138, 228, 213) 0%,
+    rgb(118, 130, 235) 100%
+  );
+}

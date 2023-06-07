@@ -1,0 +1,21 @@
+<form (ngSubmit)="submitForm()" #transferForm="ngForm">
+  <div class="form-group">
+    <label for="accountnumber">ACCOUNT NUMBER:</label><br />
+    <input
+      type="number"
+      id="accountnumber"
+      name="accountnumber"
+      [(ngModel)]="accountNumber"
+      required
+    /><br />
+    <label for="amount">Amount:</label><br />
+    <input
+      type="number"
+      id="amount"
+      name="amount"
+      [(ngModel)]="transferAmount"
+      required
+    />
+  </div>
+  <button type="submit">Transfer</button>
+</form>

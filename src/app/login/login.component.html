@@ -1,0 +1,35 @@
+<app-header></app-header>
+<body>
+  <br /><br /><br />
+  <form [formGroup]="loginForm" (ngSubmit)="goToLogin()">
+    <div class="login-container">
+      <div class="input">
+        <label><b>UserName </b></label>
+        <input type="text" formControlName="email" /><br />
+        <span class="error" id="username-error"></span><br />
+      </div>
+      <div class="input">
+        <label><b>Password</b> </label>
+        <input type="password" formControlName="password" /><br />
+        <span class="error" id="password-error"></span><br />
+      </div>
+      <div class="button-container">
+        <button
+          type="submit"
+          name="login"
+          style=" background-color: #4CAF50;  border-radius: 10px;"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          name="register"
+          style=" background-color: #4CAF50; border-radius: 10px;"
+          (click)="goToRegister()"
+        >
+          register
+        </button>
+      </div>
+    </div>
+  </form>
+</body>

@@ -1,0 +1,13 @@
+<form (ngSubmit)="submitForm()" #withdrawalForm="ngForm">
+  <div class="form-group">
+    <label for="amount">Amount:</label><br />
+    <input
+      type="number"
+      id="amount"
+      name="amount"
+      [(ngModel)]="withdrawalAmount"
+      required
+    />
+  </div>
+  <button type="submit">Withdraw</button>
+</form>
